@@ -12,21 +12,15 @@ Los permisos controlan quién puede:
 
 Estos permisos se aplican a tres grupos de usuarios:
 
-| Grupo | Significado               |
-| ----- | ------------------------- |
-| **u** | user (dueño del archivo)  |
-| **g** | group (grupo del archivo) |
-| **o** | others (otros usuarios)   |
-
-## Cómo funciona el modelo de permisos en Linux
-
-Cada archivo tiene 3 niveles de acceso:
 ``` bash
 usuario (u) | grupo (g) | otros (o)
 ```
 
+## Cómo funciona el modelo de permisos en Linux
+
 Ejemplo:
 
+Se ignora el primer guion (-)
 ```bash
 -rwxr-xr--
 ```
@@ -35,6 +29,15 @@ Se separa así:
 ```bash
 rwx | r-x | r--
 ```
+Osea el usuario puede hacer todo 
+- read
+- write 
+- execute
+
+El Grupo solo puede 
+- read
+- cant write
+- execute
 
 El gion actua como un 0 o una ausencia de permiso
 
@@ -44,6 +47,20 @@ Cada permiso tiene un valor
 Read -> 4
 Write -> 2
 Execute -> 1
+
+## Tabla de valores numéricos
+Entonces se pueden sumar para poner un valor directo
+
+| Valor | Permisos | Suma |
+|-------|----------|------|
+| 7 | rwx | 4 + 2 + 1 |
+| 6 | rw- | 4 + 2 |
+| 5 | r-x | 4 + 1 |
+| 4 | r-- | 4 |
+| 3 | -wx | 2 + 1 |
+| 2 | -w- | 2 |
+| 1 | --x | 1 |
+
 
 ## Ver permisos actuales
 
