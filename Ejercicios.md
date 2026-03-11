@@ -1,0 +1,2 @@
+- IP de VM Base: 10.168.192.7
+- IP de VM Kali: 10.168.192.2
